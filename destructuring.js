@@ -23,7 +23,7 @@ var carDetails = {
 
 //Code Here
 
-
+let {color, make, model, year} = carDetails;
 
 ////////// PROBLEM 2 //////////
 
@@ -35,7 +35,7 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
-  
+  let {firstName, lastName, title} = obj;
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -55,7 +55,10 @@ function greeting( obj ) {
 
 //Code Here
 
-
+const totalPopulation = obj => {
+  let {utah, california, texas, arizona} = obj;
+  return utah + california + texas + arizona;
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -69,7 +72,12 @@ function greeting( obj ) {
 
 //Code Here
 
-
+const ingredients = obj => {
+  let {carb, fat, protein} = obj;
+  let a = [];
+  a.push( carb, fat, protein );
+  return a;
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -87,7 +95,9 @@ function greeting( obj ) {
 
 //Code Here
 
-
+const largeNumbers = ( {first, second, third} ) => {
+  return Math.min(first, second, third);
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -99,4 +109,19 @@ function greeting( obj ) {
 
 //Code Here
 
-
+const numberGroups = ( {a, b, c} ) => {
+  const l = Math.max(a.length, b.length, c.length);
+  if ( l == a.length ) {
+    return a;
+  } else if ( l == b.length ) {
+    return b;
+  } else if ( l == c.length ) {
+    return c;
+  }
+}
+const t = {
+  a: [2,3,4,4,4],
+  b: [3,4,5,6],
+  c: [1,5,]
+}
+console.log( numberGroups(t) );
