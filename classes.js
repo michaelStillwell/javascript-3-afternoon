@@ -106,8 +106,30 @@ class ProgressiveManager {
     this.reports    = reports;
     this.title      = title;
     this.bonus      = bonus;
+    this.emp        = 0;
+  }
 
-    
+  hire() {
+    this.emp += 1;
+    if ( this.emp >= 1 && this.emp <= 3 ) {
+      this.title = "Barely Manager";
+    } else if (this.emp >= 4 && this.emp <= 10) {
+      this.title = "Mostly Manager";
+    } else if (this.emp >= 11 && this.emp <= 50) {
+      this.title = "Manager";
+    } else if (this.emp >= 51 && this.emp <= 100) {
+      this.title = "Manager Plus";
+    } else if (this.emp >= 101) {
+      this.title = "Bestest Manager";
+    } else {
+      this.title = "Not a manager";
+    }
+    return this.title;
+  }
+
+  fire() {
+    this.emp += 1;
+    this.bonus += 100;
   }
 }
 
@@ -136,6 +158,7 @@ class ProgressiveManager {
 
 //Code Here
 
+
 class Machine {
   constructor() {
     this.widgets_made_count = 0;
@@ -150,15 +173,10 @@ class Machine {
   }
   
   fixMachine() { this.needs_reboot = true }
-
-  reboot(cb) {
-    cb();
+  // Not sure if this actually works or if it's what they wanted.
+  reboot() {
     this.wear_and_tear_count -= 10;
     this.needs_reboot         = false;
+    return Function;
   }
-
 }
-
-const t = new Machine();
-t.makeWidgets(100);
-console.log( t );
